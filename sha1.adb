@@ -3,7 +3,7 @@
 -- SHA1                                                        --
 --                                                             --
 -- Computes SHA1 sum of file specified by first argument       --
--- and prints SHA1 sum to standard out.                        --
+-- and prints SHA1 sum to standard output.                     --
 --                                                             --
 -- usage: sha1 <file name>                                     --
 --                                                             --
@@ -50,9 +50,9 @@ begin
        last        : stream_element_offset;
        sha1context : gnat.sha1.context;
     begin
-       ada.streams.stream_io.open(file_handle,
-                                  stream_io.in_file,
-                                  target_file);
+       stream_io.open(file_handle,
+                      stream_io.in_file,
+                      target_file);
        loop
           -- Read a block and update the sha1 --
           stream_io.read(file_handle, buffer, last);
